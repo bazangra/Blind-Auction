@@ -1,0 +1,30 @@
+from replit import clear
+from art import logo
+print(logo)
+print("Welcome to the secret auction program.")
+
+cont = True
+dicto = {}
+
+while cont:
+  name = input("What is your name?: ")
+  bid = int(input("What's your bid?: $"))
+  dicto[name] = bid  
+  others = input('Are there any other bidders? Type "yes" or "no". ')
+  if others == "no":
+    cont = False
+  if others == "yes":
+    cont = True
+    clear()
+
+def bid_finder(dicto):
+  highest = 0
+  highest_bidder = ""
+  for i in dicto:
+    bid_list = dicto[i]
+    if bid_list > highest:
+      highest = bid_list
+      highest_bidder = i
+  print(f"The winner is {highest_bidder} with a bid of ${highest}")
+
+bid_finder(dicto)
